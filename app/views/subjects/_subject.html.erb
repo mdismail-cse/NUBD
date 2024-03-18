@@ -1,0 +1,14 @@
+<div id="<%= dom_id subject %>" class="border rounded-lg p-6 mb-6 flex justify-between items-center">
+  <div>
+    <strong class="block font-medium mb-1">Name:</strong> <%= subject.name %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Department:</strong> <%= subject.department.name %>
+  </div>
+  <div>
+    <% if action_name != "show" %>
+      <%= link_to "Show this subject", subject, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium text-blue-600" %>
+      <%= link_to "Edit this subject", edit_subject_path(subject), class: "rounded-lg py-3 ml-2 px-5 bg-blue-200 inline-block font-medium text-blue-800" %>
+    <% end %>
+  </div>
+</div>
