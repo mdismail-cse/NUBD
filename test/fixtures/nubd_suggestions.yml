@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  department_id: 1
+  subject_id: 1
+  year: 1
+
+two:
+  department_id: 1
+  subject_id: 1
+  year: 1
