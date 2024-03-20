@@ -66,6 +66,6 @@ class NubdSuggestionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def nubd_suggestion_params
-      params.require(:nubd_suggestion).permit(:department_id, :subject_id, :year)
+      params.require(:nubd_suggestion).permit(:department_id, :subject_id, :year, :free_pdf)
     end
 end

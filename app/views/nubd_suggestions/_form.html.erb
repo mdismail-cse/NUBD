@@ -12,17 +12,22 @@
   <% end %>
   <div class="my-5">
     <%= form.label :department_id %>
-    <%= form.collection_select :department_id, Department.all, :id, :name, {}, { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
+    <%= form.collection_select :department_id, Department.all, :id, :name, { prompt: "Select department" }, { id: "nubd_suggestion_department_id", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
   </div>
 
   <div class="my-5">
     <%= form.label :subject_id %>
-    <%= form.collection_select :department_id, Subject.all, :id, :name, {}, { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
+    <%= form.collection_select :subject_id, [], :id, :name, { prompt: "Select subject" }, { id: "nubd_suggestion_subject_id", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
   </div>
 
   <div class="my-5">
     <%= form.label :year %>
     <%= form.number_field :year, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :free_pdf, "Upload free PDF" %>
+    <%= form.file_field :free_pdf, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">

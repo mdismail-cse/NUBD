@@ -1,17 +1,24 @@
 <div id="<%= dom_id nubd_suggestion %>">
   <p class="my-5">
     <strong class="block font-medium mb-1">Department:</strong>
-    <%= nubd_suggestion.department_id %>
+    <%= nubd_suggestion.department.name %>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Subject:</strong>
-    <%= nubd_suggestion.subject_id %>
+    <%= nubd_suggestion.subject.name %>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Year:</strong>
     <%= nubd_suggestion.year %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">File:</strong>
+    <%#=  nubd_suggestion.free_pdf.attach(params[:free_pdf]) if nubd_suggestion.free_pdf.attached? %>
+    <%#= link_to 'Download', rails_blob_path(nubd_suggestion.free_pdf, disposition: :attachment) %>
+
   </p>
 
   <% if action_name != "show" %>
