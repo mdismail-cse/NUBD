@@ -1,29 +1,50 @@
-<div id="<%= dom_id nubd_suggestion %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Department:</strong>
-    <%= nubd_suggestion.department.name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Subject:</strong>
-    <%= nubd_suggestion.subject.name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Year:</strong>
-    <%= nubd_suggestion.year %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">File:</strong>
-    <%#=  nubd_suggestion.free_pdf.attach(params[:free_pdf]) if nubd_suggestion.free_pdf.attached? %>
-    <%#= link_to 'Download', rails_blob_path(nubd_suggestion.free_pdf, disposition: :attachment) %>
-
-  </p>
+<div id="<%= dom_id nubd_suggestion %>" class="px-4 py-2">
+  <table class="table-auto border-collapse w-full">
+    <tbody>
+    <tr>
+      <th class="border py-2 px-4">Field</th>
+      <th class="border py-2 px-4">Value</th>
+    </tr>
+    <tr>
+      <td class="border py-2 px-4"><strong class="font-medium">Department:</strong></td>
+      <td class="border py-2 px-4"><%= nubd_suggestion.department.name %></td>
+    </tr>
+    <tr>
+      <td class="border py-2 px-4"><strong class="font-medium">Subject:</strong></td>
+      <td class="border py-2 px-4"><%= nubd_suggestion.subject.name %></td>
+    </tr>
+    <tr>
+      <td class="border py-2 px-4"><strong class="font-medium">Year:</strong></td>
+      <td class="border py-2 px-4"><%= nubd_suggestion.year %></td>
+    </tr>
+    <tr>
+      <td class="border py-2 px-4"><strong class="font-medium">Free Pdf File:</strong></td>
+      <td class="border py-2 px-4">
+        <% if nubd_suggestion && nubd_suggestion.free_pdf.attached? %>
+          <%= link_to 'Preview', nubd_suggestion.free_pdf, target: '_blank' %>
+        <% else %>
+          No Free PDF available
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td class="border py-2 px-4"><strong class="font-medium">Paid Pdf File:</strong></td>
+      <td class="border py-2 px-4">
+        <% if nubd_suggestion && nubd_suggestion.paid_pdf.attached? %>
+          <%= link_to 'Preview', nubd_suggestion.paid_pdf, target: '_blank' %>
+        <% else %>
+          No paid PDF available
+        <% end %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this nubd suggestion", nubd_suggestion, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this nubd suggestion", edit_nubd_suggestion_path(nubd_suggestion), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+    <div class="mt-4">
+      <%= link_to "Show this nubd suggestion", nubd_suggestion, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium mr-2" %>
+      <%= link_to "Edit this nubd suggestion", edit_nubd_suggestion_path(nubd_suggestion), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    </div>
+    <hr class="my-6">
   <% end %>
 </div>

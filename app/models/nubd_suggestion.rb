@@ -2,6 +2,7 @@ class NubdSuggestion < ApplicationRecord
   # validates :free_pdf, blob: { content_type: %w[free_pdf/pdf]  }
 
   has_one_attached :free_pdf
+  has_one_attached :paid_pdf
 
   belongs_to :department
   belongs_to :subject
