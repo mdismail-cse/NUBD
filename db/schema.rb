@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_19_191128) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_27_193929) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_19_191128) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "nubd_requests", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "mobile"
+    t.bigint "department_id", null: false
+    t.bigint "subject_id", null: false
+    t.string "session_year"
+    t.boolean "is_active"
+    t.string "txt_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "payment_confirm"
+    t.index ["department_id"], name: "index_nubd_requests_on_department_id"
+    t.index ["subject_id"], name: "index_nubd_requests_on_subject_id"
+  end
+
   create_table "nubd_suggestions", force: :cascade do |t|
     t.integer "department_id"
     t.integer "subject_id"
@@ -78,5 +94,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_19_191128) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "nubd_requests", "departments"
+  add_foreign_key "nubd_requests", "subjects"
   add_foreign_key "subjects", "departments"
 end

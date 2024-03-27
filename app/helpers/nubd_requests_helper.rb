@@ -1,0 +1,2 @@
+module NubdRequestsHelper
+end

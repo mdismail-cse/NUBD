@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :nubd_requests
   resources :nubd_suggestions
   resources :subjects
   resources :departments

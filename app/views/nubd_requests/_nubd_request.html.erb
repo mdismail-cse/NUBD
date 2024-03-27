@@ -1,0 +1,47 @@
+<div id="<%= dom_id nubd_request %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= nubd_request.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Email:</strong>
+    <%= nubd_request.email %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Mobile:</strong>
+    <%= nubd_request.mobile %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Department:</strong>
+    <%= nubd_request.department_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Subject:</strong>
+    <%= nubd_request.subject_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Session year:</strong>
+    <%= nubd_request.session_year %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Paid:</strong>
+    <%= nubd_request.is_active %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Txt:</strong>
+    <%= nubd_request.txt_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this nubd request", nubd_request, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this nubd request", edit_nubd_request_path(nubd_request), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
