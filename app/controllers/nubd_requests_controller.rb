@@ -25,7 +25,7 @@ class NubdRequestsController < ApplicationController
 
     respond_to do |format|
       if @nubd_request.save
-        format.html { redirect_to nubd_request_url(@nubd_request), notice: "Nubd request was successfully created." }
+        format.html { redirect_to nubd_request_url(@nubd_request), notice: "NUBD request created." }
         format.json { render :show, status: :created, location: @nubd_request }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class NubdRequestsController < ApplicationController
   def update
     respond_to do |format|
       if @nubd_request.update(nubd_request_params)
-        format.html { redirect_to nubd_request_url(@nubd_request), notice: "Nubd request was successfully updated." }
+        format.html { redirect_to nubd_request_url(@nubd_request), notice: "NUBD request updated." }
         format.json { render :show, status: :ok, location: @nubd_request }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class NubdRequestsController < ApplicationController
     @nubd_request.destroy!
 
     respond_to do |format|
-      format.html { redirect_to nubd_requests_url, notice: "Nubd request was successfully destroyed." }
+      format.html { redirect_to nubd_requests_url, notice: "NUBD request deleted." }
       format.json { head :no_content }
     end
   end
